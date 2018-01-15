@@ -1,0 +1,3 @@
+rootProject.name = 'cotizar_lugares'
+
+include ':app'
