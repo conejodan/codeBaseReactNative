@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
 import {View} from 'react-native';
-import { Container, Header, Body, Title, Content, Form,Item,Input, Button, Text } from 'native-base';
+import { Container, Header, Body, Title, Content, Form,Item,Input, Button, Text, Label } from 'native-base';
+import {Actions} from 'react-native-router-flux';
 
 class LoginForm extends Component{
+
+  onPressButton(){
+    Actions.push('dashboard');
+  }
+
     render(){
         return(
             <Container>
@@ -13,13 +19,15 @@ class LoginForm extends Component{
       </Header>
       <Content>
           <Form>
-            <Item>
-              <Input placeholder="Usuario" />
+          <Item floatingLabel>
+          <Label>Usuario</Label>
+          <Input />
+        </Item>
+            <Item floatingLabel last>
+            <Label>Password</Label>
+              <Input  />
             </Item>
-            <Item last>
-              <Input placeholder="Contraseña" />
-            </Item>
-            <Button block>
+            <Button block onPress={this.onPressButton.bind(this)}>
             <Text>Ingresar</Text>
           </Button>
           </Form>
